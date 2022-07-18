@@ -39,7 +39,7 @@ router.post('/', async function (req, res, next) {
       throw new ExpressError(`Invalid book data: ${result.errors}`, 400);
     }
     const book = await Book.create(req.body);
-    return res.json({ book });
+    return res.status(201).json({ book });
   } catch (err) {
     return next(err);
   }
